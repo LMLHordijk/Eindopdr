@@ -4,7 +4,6 @@ from datetime import date
 
 import pandas as pd
 import streamlit as st
-import prophet
 
 st.title("Prediction orders Rotterdam")
 
