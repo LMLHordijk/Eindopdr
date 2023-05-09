@@ -7,10 +7,9 @@ import streamlit as st
 
 st.title("Prediction orders Rotterdam")
 
-#@st.cache_data
+@st.cache_data
 def forecast_api(df):
-   """Will return a frecast based on new opp data and your saved model"""
-   with open("VAR_Prophet_Model.pkl", "rb") as f:
+    with open("VAR_Prophet_Model.pkl", "rb") as f:
         loaded_model = pickle.load(f)
     predictions = loaded_model.predict(df)
     return predictions
@@ -34,3 +33,10 @@ def main():
     else:
         output = create_test(future_date, rainfall)
     prediction = forecast_api(output)
+    st.write(
+        "Prediction orders:", math.ceil(prediction.iloc[0, -1])
+    )  # ik rond de orders naar boven af
+    
+# run the app
+if __name__ == "__main__":
+    main()
