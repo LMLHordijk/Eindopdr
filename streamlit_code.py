@@ -25,7 +25,7 @@ def main():
         "Select a date in 2023", min_value=min_date, max_value=max_date, value=min_date
     )
     rainfall = st.number_input(
-        "Expected rain in mm: (if predicted rain is lower than 0.5: fill in -1)", value=0
+        "Expected rain in mm:", value=0
     )
     if rainfall < -1:
         st.warning("Negative numbers are not allowed.")
