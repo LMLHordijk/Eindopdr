@@ -9,7 +9,6 @@ st.title("Prediction orders Rotterdam")
 
 @st.cache_data
 def forecast_api(df):
-    # """Will return a frecast based on new opp data and your saved model"""
     with open("VAR_Prophet_Model.pkl", "rb") as f:
         loaded_model = pickle.load(f)
     predictions = loaded_model.predict(df)
