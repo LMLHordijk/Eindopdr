@@ -7,7 +7,7 @@ import streamlit as st
 
 st.title("Prediction orders Rotterdam")
 
-@st.cache_data
+#@st.cache_data
 def forecast_api(df):
     with open("VAR_Prophet_Model.pkl", "rb") as f:
         loaded_model = pickle.load(f)
